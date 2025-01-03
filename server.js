@@ -25,3 +25,8 @@ app.post('/tasks', (req, res) => {
 app.get('/tasks', (req, res) => {
     res.json(tasks);
 });
+app.delete('/tasks/:id', (req, res) => {
+    const { id } = req.params;
+    tasks = tasks.filter(task => task.id !== parseInt(id));
+    res.status(200).json({ message: 'Task deleted successfully' });
+});
